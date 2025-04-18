@@ -1,0 +1,57 @@
+services:
+  db:
+    image: postgres:17 # Use PostgreSQL version 17
+    container_name: nexus_db_container
+    restart: unless-stopped
+    env_file:
+      - .env # Load environment variables from .env file
+    environment:
+      # These are used by the official postgres image entrypoint script
+      # to initialize the DB if it doesn't exist.
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      # Mount a named volume for data persistence
+      - nexus_db_data:/var/lib/postgresql/data
+      # Note: We are NOT mounting an init script here for table creation.
+      # Table creation will be handled by the 'app' service on startup.
+    ports:
+      - "5432:5432"
+    networks:
+      - nexus_network
+    healthcheck:
+      # Checks if the server is ready to accept connections
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+  app:
+    build:
+      context: . # Build the image from the Dockerfile in the current directory
+      dockerfile: Dockerfile
+    container_name: nexus_app_container
+    restart: unless-stopped
+    env_file:
+      - .env # Load environment variables (DATABASE_URL, API keys, etc.)
+    ports:
+      - "7860:7860" # Default Gradio port
+    depends_on:
+      db:
+        condition: service_healthy # Wait for the db healthcheck to pass
+    networks:
+      - nexus_network
+    # If you need hot-reloading during development, uncomment the volume mount
+    # Be aware this can cause inconsistencies if dependencies change.
+    # volumes:
+    #   - .:/app
+
+networks:
+  nexus_network:
+    driver: bridge # Default bridge network driver
+
+volumes:
+  nexus_db_data: # Define the named volume for PostgreSQL data
+    driver: local 

@@ -38,10 +38,10 @@ Below are the two ways to use OpenAPI schemas in your agents:
 
 #### Option 1: Using the `schemas_folder`
 
-The first way to integrate OpenAPI schemas is by placing all your OpenAPI schema files in a folder, and then initializing your agent with the `schemas_folder` parameter. Agency Swarm will then automatically scan this folder and convert any OpenAPI schemas it finds into `BaseTool` instances.
+The first way to integrate OpenAPI schemas is by placing all your OpenAPI schema files in a folder, and then initializing your agent with the `schemas_folder` parameter. Nexus will then automatically scan this folder and convert any OpenAPI schemas it finds into `BaseTool` instances.
 
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 agent = Agent(
     name='MyAgent',
@@ -64,7 +64,7 @@ In this example:
 Alternatively, you can use the `ToolFactory` class to convert OpenAPI schemas from local files or URLs.
 
 ```python
-from agency_swarm.tools import ToolFactory
+from nexus.tools import ToolFactory
 
 tools = ToolFactory.from_openapi_schema(
     "<your OpenAPI schema here>",
@@ -76,7 +76,7 @@ tools = ToolFactory.from_openapi_schema(
 
 <Accordion title="Converting from a Local Schema File">
 ```python
-from agency_swarm.tools import ToolFactory
+from nexus.tools import ToolFactory
 
 with open("schemas/api_schema.json") as f:
     tools = ToolFactory.from_openapi_schema(f.read())
@@ -85,7 +85,7 @@ with open("schemas/api_schema.json") as f:
 
 <Accordion title="Converting from a Remote Schema URL">
 ```python
-from agency_swarm.tools import ToolFactory
+from nexus.tools import ToolFactory
 import requests
 
 response = requests.get("https://api.example.com/openapi.json")

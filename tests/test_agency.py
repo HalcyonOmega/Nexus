@@ -8,22 +8,22 @@ import unittest
 
 import httpx
 
-sys.path.insert(0, "../agency-swarm")
+sys.path.insert(0, "../nexus")
 
 from openai.types.beta.threads import Text
 from openai.types.beta.threads.runs import ToolCall
 from pydantic import BaseModel
 from typing_extensions import override
 
-from agency_swarm import (
+from nexus import (
     Agency,
     AgencyEventHandler,
     Agent,
     get_openai_client,
 )
-from agency_swarm.tools import BaseTool, FileSearch, ToolFactory
-from agency_swarm.tools.send_message import SendMessageAsyncThreading
-from agency_swarm.util import create_agent_template
+from nexus.tools import BaseTool, FileSearch, ToolFactory
+from nexus.tools.send_message import SendMessageAsyncThreading
+from nexus.util import create_agent_template
 
 os.environ["DEBUG_MODE"] = "True"
 
@@ -138,7 +138,7 @@ class AgencyTest(unittest.TestCase):
 
         class TestTool(BaseTool):
             """
-            A simple test tool that returns "Test Successful" to demonstrate the functionality of a custom tool within the Agency Swarm framework.
+            A simple test tool that returns "Test Successful" to demonstrate the functionality of a custom tool within the Nexus framework.
             """
 
             class ToolConfig:

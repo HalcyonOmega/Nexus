@@ -1,6 +1,6 @@
 ---
 title: "Common Use Cases"
-description: "Explore common use cases for custom communication flows in Agency Swarm."
+description: "Explore common use cases for custom communication flows in Nexus."
 icon: "code"
 ---
 
@@ -14,7 +14,7 @@ Let's say that instead of sending messages, I want my agents to send tasks to ea
 
 ```python
 from pydantic import Field
-from agency_swarm.tools.send_message import SendMessageBase
+from nexus.tools.send_message import SendMessageBase
 
 class SendMessageTask(SendMessageBase):
     """Use this tool to send tasks to other agents within your agency."""
@@ -38,7 +38,7 @@ To remove the chain of thought, you can simply remove the `chain_of_thought` par
 Now, let's say that I need to ensure that my message is sent to the correct recipient agent. (This is a very common hallucination in production.) In this case, I can add a custom validator to the `recipient` parameter, which is defined in the `SendMessageBase` class. Since I don't want to change any other parameters or descriptions, I can inherit the default `SendMessage` class and only add this new validation logic.
 
 ```python
-from agency_swarm.tools.send_message import SendMessage
+from nexus.tools.send_message import SendMessage
 from pydantic import model_validator
 
 class SendMessageValidation(SendMessage):
@@ -52,8 +52,8 @@ class SendMessageValidation(SendMessage):
 You can, of course, also use GPT for this:
 
 ```python
-from agency_swarm.tools.send_message import SendMessage
-from agency_swarm.util.validators import llm_validator
+from nexus.tools.send_message import SendMessage
+from nexus.util.validators import llm_validator
 from pydantic import model_validator
 
 class SendMessageLLMValidation(SendMessage):
@@ -73,8 +73,8 @@ In this example, the `llm_validator` will throw an error if the message is not r
 Sometimes, when using default `SendMessage`, the agents might not relay all the necessary details to the recipient agent, especially when the previous conversation is too long. In this case, you can summarize the previous conversation with GPT and add it to the context, instead of the additional instructions. I will extend the `SendMessageQuick` class, which already contains the `message` parameter, as I don't need chain of thought or files in this case.
 
 ```python
-from agency_swarm.tools.send_message import SendMessageQuick
-from agency_swarm.util.oai import get_openai_client
+from nexus.tools.send_message import SendMessageQuick
+from nexus.util.oai import get_openai_client
 
 class SendMessageSummary(SendMessageQuick):
     def run(self):
@@ -106,7 +106,7 @@ If you are a PRO, and you have managed to deploy each agent in a separate API en
 
 ```python
 import requests
-from agency_swarm.tools.send_message import SendMessage
+from nexus.tools.send_message import SendMessage
 
 class SendMessageAPI(SendMessage):
     def run(self):
@@ -121,7 +121,7 @@ This is very powerful, as you can even allow your agents to collaborate with age
 
 <Tip title="Contributing">
   If you have any ideas for new communication flows, please either adjust this page in docs, or add your new send
-  message tool in the `agency_swarm/tools/send_message` folder and open a PR!
+  message tool in the `nexus/tools/send_message` folder and open a PR!
 </Tip>
 
 **After implementing your own `SendMessage` tool**, simply pass it into the `send_message_tool_class` parameter when initializing the `Agency` class:

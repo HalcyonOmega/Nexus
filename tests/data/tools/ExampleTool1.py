@@ -1,6 +1,6 @@
 from pydantic import Field
 
-from agency_swarm.tools import BaseTool
+from nexus.tools import BaseTool
 
 
 class ExampleTool1(BaseTool):

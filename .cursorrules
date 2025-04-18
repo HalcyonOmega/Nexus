@@ -1,6 +1,6 @@
-# AI Agent Creator Instructions for Agency Swarm Framework
+# AI Agent Creator Instructions for Nexus Framework
 
-Agency Swarm is a framework that allows anyone to create a collaborative swarm of agents (Agencies), each with distinct roles and capabilities. Your primary role is to architect tools and agents that fulfill specific needs within the agency. This involves:
+Nexus is a framework that allows anyone to create a collaborative swarm of agents (Agencies), each with distinct roles and capabilities. Your primary role is to architect tools and agents that fulfill specific needs within the agency. This involves:
 
 1. **Planning**: First, plan step-by-step the Agency structure, which tools each agent must use and the best possible packages or APIs to create each tool based on the user's requirements. Ask the user for clarification before proceeding if you are unsure about anything.
 2. **Folder Structure and Template Creation**: Create the Agent Templates for each agent using the CLI Commands provided below.
@@ -37,7 +37,7 @@ To create the folder structure and agent templates, follow these steps:
 2. Create the Agent Templates inside the agency folder for each agent using the CLI command below:
 
    ```bash
-   agency-swarm create-agent-template --name "AgentName" --description "Agent Description" --path "/path/to/agency/folder"
+   nexus create-agent-template --name "AgentName" --description "Agent Description" --path "/path/to/agency/folder"
    ```
 
    You must repeat this step for each agent in the agency. Make sure to correctly specify the path to the agency folder.
@@ -97,10 +97,10 @@ Tools are the specific actions that agents can perform. They are defined using p
 
 #### 1. Import Necessary Modules
 
-Start by importing `BaseTool` from `agency_swarm.tools` and `Field` from `pydantic`. These imports will serve as the foundation for your custom tool class. Import any additional packages necessary to implement the tool's logic based on the user's requirements. Import `load_dotenv` from `dotenv` to load the environment variables.
+Start by importing `BaseTool` from `nexus.tools` and `Field` from `pydantic`. These imports will serve as the foundation for your custom tool class. Import any additional packages necessary to implement the tool's logic based on the user's requirements. Import `load_dotenv` from `dotenv` to load the environment variables.
 
 ```python
-from agency_swarm.tools import BaseTool
+from nexus.tools import BaseTool
 from pydantic import Field
 import os
 from dotenv import load_dotenv
@@ -158,7 +158,7 @@ def run(self):
 
 ```python
 # MyCustomTool.py
-from agency_swarm.tools import BaseTool
+from nexus.tools import BaseTool
 from pydantic import Field
 import os
 from dotenv import load_dotenv
@@ -225,10 +225,10 @@ Each agent has it's own unique role and functionality and is designed to perform
 
 1. **Create an Agent class in the agent's folder.**
 
-   To create an agent, import `Agent` from `agency_swarm` and create a class that inherits from `Agent`. Inside the class you can adjust the following parameters:
+   To create an agent, import `Agent` from `nexus` and create a class that inherits from `Agent`. Inside the class you can adjust the following parameters:
 
    ```python
-   from agency_swarm import Agent
+   from nexus import Agent
 
    class CEO(Agent):
        def __init__(self):
@@ -285,7 +285,7 @@ To utilize the Code Interpreter tool (the Jupyter Notebook Execution environment
 1. **Import the tools:**
 
    ```python
-   from agency_swarm.tools import CodeInterpreter, FileSearch
+   from nexus.tools import CodeInterpreter, FileSearch
    ```
 
 2. **Add the tools to the agent's tools list:**
@@ -306,10 +306,10 @@ Agencies are collections of agents that work together to achieve a common goal. 
 
 1. **Create an `agency.py` file in the agency folder.**
 
-   To create an agency, import `Agency` from `agency_swarm` and create a class that inherits from `Agency`. Inside the class you can adjust the following parameters:
+   To create an agency, import `Agency` from `nexus` and create a class that inherits from `Agency`. Inside the class you can adjust the following parameters:
 
    ```python
-   from agency_swarm import Agency
+   from nexus import Agency
    from CEO import CEO
    from Developer import Developer
    from VirtualAssistant import VirtualAssistant
@@ -334,7 +334,7 @@ Agencies are collections of agents that work together to achieve a common goal. 
 
    #### Communication Flows
 
-   In Agency Swarm, communication flows are directional, meaning they are established from left to right in the `agency_chart` definition. For instance, in the example above, the CEO can initiate a chat with the developer (dev), and the developer can respond in this chat. However, the developer cannot initiate a chat with the CEO. The developer can initiate a chat with the virtual assistant (va) and assign new tasks.
+   In Nexus, communication flows are directional, meaning they are established from left to right in the `agency_chart` definition. For instance, in the example above, the CEO can initiate a chat with the developer (dev), and the developer can respond in this chat. However, the developer cannot initiate a chat with the CEO. The developer can initiate a chat with the virtual assistant (va) and assign new tasks.
 
    To allow agents to communicate with each other, simply add them in the second level list inside the `agency_chart` like this: `[ceo, dev], [ceo, va], [dev, va]`. The agent on the left will be able to communicate with the agent on the right.
 

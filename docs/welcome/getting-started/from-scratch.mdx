@@ -27,7 +27,7 @@ icon: "code"
     **Command Syntax:**
 
     ```bash
-    agency-swarm create-agent-template --name "AgentName" --description "Agent Description" [--path "/path/to/directory"] [--use_txt]
+    nexus create-agent-template --name "AgentName" --description "Agent Description" [--path "/path/to/directory"] [--use_txt]
     ```
 
     **Agent Folder Structure:**
@@ -69,7 +69,7 @@ icon: "code"
     **MyCustomTool.py:**
 
     ```python
-    from agency_swarm.tools import BaseTool
+    from nexus.tools import BaseTool
     from pydantic import Field
 
     class MyCustomTool(BaseTool):
@@ -109,7 +109,7 @@ icon: "code"
     **Developer.py:**
 
     ```python
-    from agency_swarm import Agent
+    from nexus import Agent
 
     class Developer(Agent):
         def __init__(self):
@@ -150,7 +150,7 @@ icon: "code"
     **agency.py:**
 
     ```python
-    from agency_swarm import Agency
+    from nexus import Agency
     from .Developer import Developer
     from .CEO import CEO
 
@@ -169,7 +169,7 @@ icon: "code"
     Any agents that are listed in the same list (e.g., `[[ceo, developer]]`) can communicate with each other. The top-level list (`[ceo]`) defines agents that can communicate with the user.
 
     <Note title="Note on Communication Flows">
-      In Agency Swarm, communication flows are directional, meaning they are established from left to right in the `agency_chart` definition. For instance, in the example above, the CEO can initiate a chat with the Developer (`developer`), and the Developer can respond in this chat. However, the Developer cannot initiate a chat with the CEO.
+      In Nexus, communication flows are directional, meaning they are established from left to right in the `agency_chart` definition. For instance, in the example above, the CEO can initiate a chat with the Developer (`developer`), and the Developer can respond in this chat. However, the Developer cannot initiate a chat with the CEO.
     </Note>
 
   </Step>

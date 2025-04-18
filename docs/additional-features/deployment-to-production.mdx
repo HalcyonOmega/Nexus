@@ -23,7 +23,7 @@ To deploy your agency to production, typically the process is as follows:
 By default, every time you create a new `Agency()`, it starts a fresh conversation thread. However, in production environments, you typically need to pick up old conversations or handle multiple users at once.
 
 <Info>
-In Agency Swarm, threads are stored in a dictionary that contains all conversation thread IDs, including those between your agents.
+In Nexus, threads are stored in a dictionary that contains all conversation thread IDs, including those between your agents.
 </Info>
 
 Loading threads from a database before processing a new request allows you to continue conversations from where they left off, even if you are using stateless backend.
@@ -121,7 +121,7 @@ Watch the video below for a detailed walkthrough:
 
 <Card
   title="Railway Deployment Template"
-  href="https://github.com/VRSEN/agency-swarm-api-railway-template"
+  href="https://github.com/VRSEN/nexus-api-railway-template"
   icon="train"
   iconType="duotone"
 >
@@ -141,7 +141,7 @@ Instead of deploying agents and tools together, you can host your tools separate
 You can use our Firebase template:
 <Card
   title="Firebase Deployment Template"
-  href="https://github.com/vrsen-ai-solutions/agency-swarm-tools-template"
+  href="https://github.com/vrsen-ai-solutions/nexus-tools-template"
   icon="fire"
   iconType="duotone"
 >

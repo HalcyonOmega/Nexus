@@ -1,6 +1,6 @@
 ---
 title: "Advanced Configuration"
-description: "Learn advanced configuration options for your agents in Agency Swarm."
+description: "Learn advanced configuration options for your agents in Nexus."
 icon: "gears"
 ---
 
@@ -11,7 +11,7 @@ All parameters inside the `Agent` class, follow the same structure as [OpenAI's 
 Whether to run tools in parallel or sequentially. By default, this parameter is set to `True`.
 
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 agent = Agent(name='MyAgent', parallel_tool_calls=False)
 ```
@@ -21,7 +21,7 @@ agent = Agent(name='MyAgent', parallel_tool_calls=False)
 File search configuration for the agent, as described in the [OpenAI documentation](https://platform.openai.com/docs/api-reference/assistants/createAssistant#assistants-createassistant-tools).
 
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 agent = Agent(
     name='MyAgent',
@@ -45,7 +45,7 @@ This is a special function that allows you to validate the response before sendi
 
 ```python
 
-from agency_swarm import Agent
+from nexus import Agent
 
 class MyAgent(Agent):
     def response_validator(self, message: str) -> str:
@@ -61,7 +61,7 @@ class MyAgent(Agent):
 Few-show examples help the agent to understand how to respond. The format for examples follows [message object format on OpenAI](https://platform.openai.com/docs/api-reference/messages/createMessage):
 
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 examples=[
     {

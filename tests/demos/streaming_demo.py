@@ -1,8 +1,8 @@
 import time
 
-from agency_swarm import Agent, BaseTool
-from agency_swarm.agency.agency import Agency
-from agency_swarm.constants import DEFAULT_MODEL_MINI
+from nexus import Agent, BaseTool
+from nexus.agency.agency import Agency
+from nexus.constants import DEFAULT_MODEL_MINI
 
 
 class TestTool(BaseTool):

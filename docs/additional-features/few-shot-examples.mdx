@@ -14,7 +14,7 @@ icon: "clone"
 
 ## Defining Few-Shot Examples
 
-In the **Agency Swarm** framework, few-shot examples are structured using the [OpenAI message object format](https://platform.openai.com/docs/api-reference/messages/createMessage), including the `role` and `content` fields.
+In the **Nexus** framework, few-shot examples are structured using the [OpenAI message object format](https://platform.openai.com/docs/api-reference/messages/createMessage), including the `role` and `content` fields.
 
 **Example**: Technical Support Agent:
 
@@ -49,7 +49,7 @@ You can add few-shot examples to your agent either during initialization or afte
     <Tab title="During Initialization">
 
     ```python
-    from agency_swarm import Agent
+    from nexus import Agent
 
     agent = Agent(
         name="CustomerSupportAgent",

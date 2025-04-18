@@ -1,6 +1,6 @@
 ---
 title: "Best Practices & Tips"
-description: "Best practices and real-world examples for Agency Swarm tools."
+description: "Best practices and real-world examples for Nexus tools."
 icon: "code"
 ---
 
@@ -11,7 +11,7 @@ Although the tool interface is straightforward and simple to use, there are actu
 Use chain-of-thought prompting to allow the agent to think and plan before executing a complex tool.
 
 ```python
-from agency_swarm.tools import BaseTool
+from nexus.tools import BaseTool
 from pydantic import Field
 
 class ComplexAnalysisTool(BaseTool):

@@ -11,8 +11,8 @@ Asynchronous execution allows you to run your agents or tools asynchronously in 
 To run each agent in a separate thread, you need to use a special `SendMessageAsyncThreading` tool class. See [Custom Communicaiton Flows](/additional-features/custom-communication-flows) for more information.
 
 ```python
-from agency_swarm import SendMessageAsyncThreading
-from agency_swarm import Agency
+from nexus import SendMessageAsyncThreading
+from nexus import Agency
 
 agency = Agency(agents=[ceo], send_message_tool_class=SendMessageAsyncThreading)
 ```
@@ -24,7 +24,7 @@ With this mode, the caller agent does not receive an immediate reply. Instead, i
 To run each tool in a separate thread, you need to adjust the ToolConfig class for each tool that you want to run asynchronously. See [Custom Tools Configuration](/core-framework/tools/custom-tools/configuration) for more information.
 
 ```python
-from agency_swarm import BaseTool
+from nexus import BaseTool
 
 class Tool(BaseTool):
     # ...

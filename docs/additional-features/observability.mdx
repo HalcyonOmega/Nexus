@@ -4,10 +4,10 @@ description: "Track and analyze your agent performance and behavior by connectin
 icon: "eyes"
 ---
 
-Agency Swarm uses Langchain callbacks to connect with third party observability tools.
+Nexus uses Langchain callbacks to connect with third party observability tools.
 
 <Info>
-  Although we strongly discourage using Langchain for agent development due to its numerous unnecessary abstractions, it currently has the widest support among third-party observability tools. For this reason, we have adopted its callback structure. However, no Langchain code is used within Agency Swarm.
+  Although we strongly discourage using Langchain for agent development due to its numerous unnecessary abstractions, it currently has the widest support among third-party observability tools. For this reason, we have adopted its callback structure. However, no Langchain code is used within Nexus.
 </Info>
 
 <Accordion title="Prerequisites" defaultOpen={true}>
@@ -60,7 +60,7 @@ We currently recommend [**Langfuse**](https://langfuse.com/) because it is fully
       </Step>
       <Step title="Initialize Tracking">
         ```python
-        from agency_swarm import init_tracking
+        from nexus import init_tracking
 
         # Initialize single tracker
         init_tracking("langfuse")
@@ -125,7 +125,7 @@ We currently recommend [**Langfuse**](https://langfuse.com/) because it is fully
       </Step>
       <Step title="Initialize Tracking">
         ```python
-        from agency_swarm import init_tracking
+        from nexus import init_tracking
         init_tracking("local")
         ```
 
@@ -143,7 +143,7 @@ We currently recommend [**Langfuse**](https://langfuse.com/) because it is fully
 
 ## How It Works
 
-Agency Swarm uses a simple but powerful tracking system that captures every interaction in your agent's lifecycle:
+Nexus uses a simple but powerful tracking system that captures every interaction in your agent's lifecycle:
 
 1. **Event Tracking**: Every message, tool call, and error is automatically tracked with unique IDs and timestamps.
 2. **Hierarchical Structure**: Events are organized in a tree structure, showing how different parts of your agent interact.

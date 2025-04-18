@@ -1,14 +1,14 @@
 import json
 import sys
 
-from agency_swarm.agency.agency import Agency
-from agency_swarm.threads import Thread
+from nexus.agency.agency import Agency
+from nexus.threads import Thread
 from tests.ceo.ceo import Ceo
 
 from .test_agent.test_agent import TestAgent
 from .test_agent2.test_agent2 import TestAgent2
 
-sys.path.insert(0, "../agency-swarm")
+sys.path.insert(0, "../nexus")
 
 
 def custom_serializer(obj):

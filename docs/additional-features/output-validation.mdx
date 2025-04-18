@@ -8,7 +8,7 @@ Validating the outputs of agents and tools is crucial for building reliable and 
 
 ## Validators
 
-There are 4 different validators in Agency Swarm:
+There are 4 different validators in Nexus:
 
 - Tool validators:
   - `field_validator`: Validate individual fields independently.
@@ -25,7 +25,7 @@ You can define a `response_validator` method inside your Agent class to validate
 **Example:**
 
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 class CustomerSupportAgent(Agent):
     def response_validator(self, message: str) -> str:
@@ -54,7 +54,7 @@ This example ensures that the `username` field does not contain spaces using a f
 
 ```python
 from pydantic import field_validator
-from agency_swarm import BaseTool
+from nexus import BaseTool
 
 class User(BaseTool):
     username: str
@@ -72,7 +72,7 @@ class User(BaseTool):
 This example, a model validator checks that `password` and `confirm_password` match, which requires access to multiple fields:
 ```python
 from pydantic import model_validator
-from agency_swarm import BaseTool
+from nexus import BaseTool
 
 class User(BaseTool):
     password: str
@@ -94,8 +94,8 @@ The `llm_validator` is a powerful way to validate outputs against specified natu
 **Example:**
 
 ```python
-from agency_swarm.tools.send_message import SendMessage
-from agency_swarm.util.validators import llm_validator
+from nexus.tools.send_message import SendMessage
+from nexus.util.validators import llm_validator
 from pydantic import model_validator
 
 class SendMessageLLMValidation(SendMessage):

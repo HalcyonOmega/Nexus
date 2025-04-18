@@ -4,23 +4,23 @@ description: "Learn how to customize communication flows for your agency."
 icon: "globe"
 ---
 
-Multi-agent communication is the core functionality of any Multi-Agent System. Unlike in all other frameworks, Agency Swarm not only allows you to define communication flows in any way you want (uniform communication flows), but also to configure the underlying logic for this feature. This means that you can create entirely new types of communication or adjust it to your own needs. Below you will find a guide on how to do all this, along with some common examples.
+Multi-agent communication is the core functionality of any Multi-Agent System. Unlike in all other frameworks, Nexus not only allows you to define communication flows in any way you want (uniform communication flows), but also to configure the underlying logic for this feature. This means that you can create entirely new types of communication or adjust it to your own needs. Below you will find a guide on how to do all this, along with some common examples.
 
 ## Pre-Made SendMessage Classes
 
-Agency Swarm contains multiple commonly requested classes for communication flows. Currently, the following classes are available:
+Nexus contains multiple commonly requested classes for communication flows. Currently, the following classes are available:
 
 | Class Name                  | Description                                                                                                                                                                                                                               | When to Use                                                                                                    | Code Link                                                                                                            |
 | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| `SendMessage` (default)     | This is the default class for sending messages to other agents. It uses synchronous communication with basic COT (Chain of Thought) prompting and allows agents to relay files and modify system instructions for each other.             | Suitable for most use cases. Balances speed and functionality.                                                 | [link](https://github.com/VRSEN/agency-swarm/blob/main/agency_swarm/tools/send_message/SendMessage.py)               |
-| `SendMessageQuick`          | A variant of the SendMessage class without Chain of Thought prompting, files, and additional instructions. It allows for faster communication without the overhead of COT.                                                                | Use for simpler use cases or when you want to save tokens and increase speed.                                  | [link](https://github.com/VRSEN/agency-swarm/blob/main/agency_swarm/tools/send_message/SendMessageQuick.py)          |
-| `SendMessageAsyncThreading` | Similar to `SendMessage` but with `async_mode='threading'`. Each agent will execute asynchronously in a separate thread. In the meantime, the caller agent can continue the conversation with the user and check the results later.       | Use for asynchronous applications or when sub-agents take significant amounts of time to complete their tasks. | [link](https://github.com/VRSEN/agency-swarm/blob/main/agency_swarm/tools/send_message/SendMessageAsyncThreading.py) |
-| `SendMessageSwarm`          | Instead of sending a message to another agent, it replaces the caller agent with the recipient agent, similar to [OpenAI's Swarm](https://github.com/openai/swarm). The recipient agent will then have access to the entire conversation. | When you need more granular control. It is not able to handle complex multi-step, multi-agent tasks.           | [link](https://github.com/VRSEN/agency-swarm/blob/main/agency_swarm/tools/send_message/SendMessageSwarm.py)          |
+| `SendMessage` (default)     | This is the default class for sending messages to other agents. It uses synchronous communication with basic COT (Chain of Thought) prompting and allows agents to relay files and modify system instructions for each other.             | Suitable for most use cases. Balances speed and functionality.                                                 | [link](https://github.com/VRSEN/nexus/blob/main/nexus/tools/send_message/SendMessage.py)               |
+| `SendMessageQuick`          | A variant of the SendMessage class without Chain of Thought prompting, files, and additional instructions. It allows for faster communication without the overhead of COT.                                                                | Use for simpler use cases or when you want to save tokens and increase speed.                                  | [link](https://github.com/VRSEN/nexus/blob/main/nexus/tools/send_message/SendMessageQuick.py)          |
+| `SendMessageAsyncThreading` | Similar to `SendMessage` but with `async_mode='threading'`. Each agent will execute asynchronously in a separate thread. In the meantime, the caller agent can continue the conversation with the user and check the results later.       | Use for asynchronous applications or when sub-agents take significant amounts of time to complete their tasks. | [link](https://github.com/VRSEN/nexus/blob/main/nexus/tools/send_message/SendMessageAsyncThreading.py) |
+| `SendMessageSwarm`          | Instead of sending a message to another agent, it replaces the caller agent with the recipient agent, similar to [OpenAI's Swarm](https://github.com/openai/swarm). The recipient agent will then have access to the entire conversation. | When you need more granular control. It is not able to handle complex multi-step, multi-agent tasks.           | [link](https://github.com/VRSEN/nexus/blob/main/nexus/tools/send_message/SendMessageSwarm.py)          |
 
 **To use any of the pre-made `SendMessage` classes**, simply put it in the `send_message_tool_class` parameter when initializing the `Agency` class:
 
 ```python
-from agency_swarm.tools.send_message import SendMessageQuick
+from nexus.tools.send_message import SendMessageQuick
 
 agency = Agency(
     ...
@@ -32,11 +32,11 @@ That's it! Now, your agents will use your own custom `SendMessageQuick` class fo
 
 ## Creating Your Own Unique Communication Flows
 
-To create your own communication flow, you will first need to extend the `SendMessageBase` class. This class extends the `BaseTool` class, like any other tools in Agency Swarm, and contains the most basic parameters required for communication, such as the `recipient_agent`.
+To create your own communication flow, you will first need to extend the `SendMessageBase` class. This class extends the `BaseTool` class, like any other tools in Nexus, and contains the most basic parameters required for communication, such as the `recipient_agent`.
 
 ### Default `SendMessage` Class
 
-By default, Agency Swarm uses the following tool for communication:
+By default, Nexus uses the following tool for communication:
 
 ```python
 from pydantic import Field, field_validator, model_validator
@@ -101,6 +101,6 @@ For detailed **Common Use Cases**, please refer to the [Common Use Cases](./comm
 
 ## Conclusion
 
-Agency Swarm has been designed to give you, the developer, full control over your systems. It is the only framework that does not hard-code any prompts, parameters, or even worse, agents for you. With this new feature, the last part of the system that you couldn't fully customize to your own needs is now gone!
+Nexus has been designed to give you, the developer, full control over your systems. It is the only framework that does not hard-code any prompts, parameters, or even worse, agents for you. With this new feature, the last part of the system that you couldn't fully customize to your own needs is now gone!
 
 So, we want to encourage you to keep experimenting and designing your own unique communication flows. While the examples above should serve as a good starting point, they do not even merely scratch the surface of what's possible here! We are looking forward to seeing what you will create. Please share it in our [Discord server](https://discord.gg/7HcABDpFPG) so we can all learn from each other.

@@ -1,17 +1,17 @@
-# Contributing to Agency Swarm
-Each agent or tool you add to Agency Swarm will automatically be available for import by the Genesis Swarm, which will help us create an exponentially larger and smarter system.
+# Contributing to Nexus
+Each agent or tool you add to Nexus will automatically be available for import by the Genesis Swarm, which will help us create an exponentially larger and smarter system.
 
 This document provides guidelines for contributing new agents and tools to the framework.
 
 ## Setting Up Your Development Environment
 
-To contribute to Agency Swarm, you'll need to set up your local development environment:
+To contribute to Nexus, you'll need to set up your local development environment:
 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/VRSEN/agency-swarm.git
-   cd agency-swarm
+   git clone https://github.com/VRSEN/nexus.git
+   cd nexus
    ```
 
 2. **Create a Virtual Environment**
@@ -65,17 +65,17 @@ Ensure all tests pass before submitting your changes:
    Check the test coverage:
 
    ```bash
-   pytest --cov=agency_swarm tests/
+   pytest --cov=nexus tests/
    ```
 
 ## Folder Structure for Tools
 
-Tools should be added in the `agency_swarm/tools/{category}/` directory as shown below. Each tool should be placed in its specific category folder like `coding`, `browsing`, `investing`, etc.
+Tools should be added in the `nexus/tools/{category}/` directory as shown below. Each tool should be placed in its specific category folder like `coding`, `browsing`, `investing`, etc.
 
-Your tool file should be named `YourNewTool.py`. Tests should be added in `agency_swarm/tests/test_tools.py`.
+Your tool file should be named `YourNewTool.py`. Tests should be added in `nexus/tests/test_tools.py`.
 
 ```bash
-agency_swarm/tools/your-tool-category/
+nexus/tools/your-tool-category/
 │
 ├── YourNewTool.py          # The main tool class file
 └── __init__.py             # Make sure to import your tool here
@@ -83,7 +83,7 @@ agency_swarm/tools/your-tool-category/
 
 ### Adding Tests For Your Tools
 
-For each tool, please add the following test case in `agency_swarm/tests/test_tools.py`:
+For each tool, please add the following test case in `nexus/tests/test_tools.py`:
 
 ```python
 def test_my_tool_example():
@@ -94,7 +94,7 @@ def test_my_tool_example():
 
 ---
 
-Thank you for contributing to Agency Swarm! Your efforts help us build a more robust and versatile framework.
+Thank you for contributing to Nexus! Your efforts help us build a more robust and versatile framework.
 
 1. **Install Test Dependencies**
 
@@ -117,15 +117,15 @@ Thank you for contributing to Agency Swarm! Your efforts help us build a more ro
    To check test coverage, run:
 
    ```bash
-   pytest --cov=agency_swarm tests/
+   pytest --cov=nexus tests/
    ```
 
 ## Folder Structure for Agents
 
-Agents should be placed in `agency_swarm/agents/` directory. Each agent should have its dedicated folder named `AgentName` like below. Make sure to use **CamelCase** for the agent name and the folder.
+Agents should be placed in `nexus/agents/` directory. Each agent should have its dedicated folder named `AgentName` like below. Make sure to use **CamelCase** for the agent name and the folder.
 
 ```
-agency_swarm/agents/AgentName/
+nexus/agents/AgentName/
 │
 └── AgentName/                  # Directory for the specific agent
     ├── files/                  # Directory for files that will be uploaded to OpenAI (if any)
@@ -139,11 +139,11 @@ agency_swarm/agents/AgentName/
 ### Creating an Agent
 
 1. Use the following structure in your `AgentName.py` as a guideline.
-2. Import all tools (except schemas) from the `agency_swarm/tools/...` folder.
+2. Import all tools (except schemas) from the `nexus/tools/...` folder.
 
 ```python
-from agency_swarm import Agent
-from agency_swarm.tools.example import ExampleTool
+from nexus import Agent
+from nexus.tools.example import ExampleTool
 
 class AgentName(Agent):
     def __init__(self):
@@ -157,4 +157,4 @@ class AgentName(Agent):
 
 ---
 
-Thank you for contributing to Agency Swarm! Your efforts help us build a more robust and versatile framework.
+Thank you for contributing to Nexus! Your efforts help us build a more robust and versatile framework.

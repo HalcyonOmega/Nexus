@@ -1,13 +1,13 @@
-# 🐝 Agency Swarm
+# 🐝 Nexus
 
 ![Framework](https://firebasestorage.googleapis.com/v0/b/vrsen-ai/o/public%2Fgithub%2FLOGO_BG_large_bold_shadow%20(1).jpg?alt=media&token=8c681331-2a7a-4a69-b21b-3ab1f9bf1a23)
 
 ## Overview
 
-Agency Swarm started as a desire and effort of Arsenii Shatokhin (aka VRSEN) to fully automate his AI Agency with AI. By building this framework, we aim to simplify the agent creation process and enable anyone to create collaborative swarm of agents (Agencies), each with distinct roles and capabilities. By thinking about automation in terms of real world entities, such as agencies and specialized agent roles, we make it a lot more intuitive for both the agents and the users.
+Nexus started as a desire and effort of Arsenii Shatokhin (aka VRSEN) to fully automate his AI Agency with AI. By building this framework, we aim to simplify the agent creation process and enable anyone to create collaborative swarm of agents (Agencies), each with distinct roles and capabilities. By thinking about automation in terms of real world entities, such as agencies and specialized agent roles, we make it a lot more intuitive for both the agents and the users.
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1qGVyK-vIoxZD0dMrMVqCxCsgL1euMLKj)
-[![Docs](https://img.shields.io/website?label=Docs&up_message=available&url=https://vrsen.github.io/agency-swarm/)](https://vrsen.github.io/agency-swarm/)
+[![Docs](https://img.shields.io/website?label=Docs&up_message=available&url=https://vrsen.github.io/nexus/)](https://vrsen.github.io/nexus/)
 [![Subscribe on YouTube](https://img.shields.io/youtube/channel/subscribers/UCSv4qL8vmoSH7GaPjuqRiCQ)](https://youtube.com/@vrsen/)
 [![Follow on Twitter](https://img.shields.io/twitter/follow/__vrsen__.svg?style=social&label=Follow%20%40__vrsen__)](https://twitter.com/__vrsen__)
 [![Join our Discord!](https://img.shields.io/discord/1200037936352202802?label=Discord)](https://discord.gg/cw2xBaWfFM)
@@ -19,27 +19,27 @@ Agency Swarm started as a desire and effort of Arsenii Shatokhin (aka VRSEN) to 
 - **Full Control Over Prompts**: Avoid conflicts and restrictions of pre-defined prompts, allowing full customization.
 - **Type-Safe Tools**: Create reliable tools with automatic type validation and error correction.
 - **Efficient Communication**: Agents communicate through a specially designed messaging tool based on their own descriptions.
-- **State Management**: Agency Swarm efficiently manages the state of your assistants on OpenAI, maintaining it in a special `settings.json` file.
+- **State Management**: Nexus efficiently manages the state of your assistants on OpenAI, maintaining it in a special `settings.json` file.
 - **Production Ready**: Built for reliability and easy deployment in production environments.
 
 ## Installation
 
 ```bash
-pip install -U agency-swarm
+pip install -U nexus
 ```
 
 ## Getting Started
 
 1. **Set Your OpenAI Key**:
     ```python
-    from agency_swarm import set_openai_key
+    from nexus import set_openai_key
     set_openai_key("YOUR_API_KEY")
     ```
 
 2. **Create Tools**:
 Define your custom tools by extending the `BaseTool` class:
     ```python
-    from agency_swarm.tools import BaseTool
+    from nexus.tools import BaseTool
     from pydantic import Field
 
     class MyCustomTool(BaseTool):
@@ -70,7 +70,7 @@ Define your custom tools by extending the `BaseTool` class:
     or convert from OpenAPI schemas:
 
     ```python
-    from agency_swarm.tools import ToolFactory
+    from nexus.tools import ToolFactory
     # using local file
     with open("schemas/your_schema.json") as f:
         tools = ToolFactory.from_openapi_schema(
@@ -87,7 +87,7 @@ Define your custom tools by extending the `BaseTool` class:
 3. **Define Agent Roles**: Start by defining the roles of your agents. For example, a CEO agent for managing tasks and a developer agent for executing tasks.
 
     ```python
-    from agency_swarm import Agent
+    from nexus import Agent
 
     ceo = Agent(
         name="CEO",
@@ -104,7 +104,7 @@ Define your custom tools by extending the `BaseTool` class:
     Import from existing agents:
 
    ```bash
-   agency-swarm import-agent --name "Devid" --destination "./"
+   nexus import-agent --name "Devid" --destination "./"
    ```
 
    This will import Devid (Software Developer) Agent locally, including all source code files, so you have full control over your system. Currently, available agents are: `Devid`, `BrowsingAgent`.
@@ -114,7 +114,7 @@ Define your custom tools by extending the `BaseTool` class:
 Establish how your agents will communicate with each other.
 
     ```python
-    from agency_swarm import Agency
+    from nexus import Agency
     # if importing from local files
     from Developer import Developer
     from VirtualAssistant import VirtualAssistant
@@ -134,7 +134,7 @@ Establish how your agents will communicate with each other.
     )
     ```
 
-     In Agency Swarm, communication flows are directional, meaning they are established from left to right in the agency_chart definition. For instance, in the example above, the CEO can initiate a chat with the developer (dev), and the developer can respond in this chat. However, the developer cannot initiate a chat with the CEO. The developer can initiate a chat with the virtual assistant (va) and assign new tasks.
+     In Nexus, communication flows are directional, meaning they are established from left to right in the agency_chart definition. For instance, in the example above, the CEO can initiate a chat with the developer (dev), and the developer can respond in this chat. However, the developer cannot initiate a chat with the CEO. The developer can initiate a chat with the virtual assistant (va) and assign new tasks.
 
 5. **Run Demo**:
 Run the demo to see your agents in action!
@@ -166,7 +166,7 @@ The `genesis` command starts the genesis agency in your terminal to help you cre
 #### **Command Syntax:**
 
 ```bash
-agency-swarm genesis [--openai_key "YOUR_API_KEY"]
+nexus genesis [--openai_key "YOUR_API_KEY"]
 ```
 
 Make sure to include:
@@ -181,7 +181,7 @@ This CLI command allows you to import existing agents from local files into your
 #### **Command Syntax:**
 
 ```bash
-agency-swarm import-agent --name "AgentName" --destination "/path/to/directory"
+nexus import-agent --name "AgentName" --destination "/path/to/directory"
 ```
 
 To check available agents, simply run this command without any arguments.
@@ -193,7 +193,7 @@ This CLI command simplifies the process of creating a structured environment for
 #### **Command Syntax:**
 
 ```bash
-agency-swarm create-agent-template --name "AgentName" --description "Agent Description" [--path "/path/to/directory"] [--use_txt]
+nexus create-agent-template --name "AgentName" --description "Agent Description" [--path "/path/to/directory"] [--use_txt]
 ```
 
 ### Folder Structure
@@ -225,11 +225,11 @@ This structure ensures that each agent has its dedicated space with all necessar
 
 ## Contributing
 
-For details on how to contribute you agents and tools to Agency Swarm, please refer to the [Contributing Guide](CONTRIBUTING.md).
+For details on how to contribute you agents and tools to Nexus, please refer to the [Contributing Guide](CONTRIBUTING.md).
 
 ## License
 
-Agency Swarm is open-source and licensed under [MIT](https://opensource.org/licenses/MIT).
+Nexus is open-source and licensed under [MIT](https://opensource.org/licenses/MIT).
 
 
 

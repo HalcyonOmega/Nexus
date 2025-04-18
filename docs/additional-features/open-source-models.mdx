@@ -1,6 +1,6 @@
 ---
 title: "Open-Source Models"
-description: "Utilize open-source models with Agency Swarm."
+description: "Utilize open-source models with Nexus."
 icon: "code-fork"
 ---
 
@@ -17,12 +17,12 @@ While OpenAI is generally recommended, there are situations where you might pref
   href="https://github.com/datastax/astra-assistants-api"
 >
   The best and the easiest option for running Open Source models. Supports Assistants API V2. See example
-  [notebook](https://github.com/VRSEN/agency-swarm/blob/main/notebooks/os_models_with_astra_assistants_api.ipynb) and [official examples](https://github.com/datastax/astra-assistants-api/tree/main/examples/python/agency-swarm).
+  [notebook](https://github.com/VRSEN/nexus/blob/main/notebooks/os_models_with_astra_assistants_api.ipynb) and [official examples](https://github.com/datastax/astra-assistants-api/tree/main/examples/python/nexus).
 </Card>
 
 <Card title="Open Assistant API" icon="users" iconType="solid" href="https://github.com/MLT-OSS/open-assistant-api">
   Fully local, stable, and tested, but only supports Assistants V1. See example
-  [here](https://github.com/VRSEN/agency-swarm-lab/tree/main/OpenSourceSwarm).
+  [here](https://github.com/VRSEN/nexus-lab/tree/main/OpenSourceSwarm).
 </Card>
 
 <Card title="OpenOpenAI" icon="code" iconType="solid" href="https://github.com/transitive-bullshit/OpenOpenAI">
@@ -73,7 +73,7 @@ pip install astra-assistants-api gradio
 ```python
 from openai import OpenAI
 from astra_assistants import patch
-from agency_swarm import set_openai_client
+from nexus import set_openai_client
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -88,7 +88,7 @@ set_openai_client(client)
 Create an agent and replace the `model` parameter with the name of the model you want to use. With Astra Assistants, you can upload files as usual using `files_folder`.
 
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 ceo = Agent(
     name="ceo",
@@ -108,7 +108,7 @@ ceo = Agent(
 You can add more agents as needed, just ensure all manager agents support function calling.
 
 ```python
-from agency_swarm import Agency
+from nexus import Agency
 
 agency = Agency([ceo])
 ```
@@ -116,10 +116,10 @@ agency = Agency([ceo])
 </Step>
 
 <Step title="8. Start Gradio:" icon="play">
-To utilize your agency in Gradio, apply a specific non-streaming `demo_gradio` method from the [agency-swarm-lab](https://github.com/VRSEN/agency-swarm-lab/blob/main/OpenSourceSwarm/demo_gradio.py) repository:
+To utilize your agency in Gradio, apply a specific non-streaming `demo_gradio` method from the [nexus-lab](https://github.com/VRSEN/nexus-lab/blob/main/OpenSourceSwarm/demo_gradio.py) repository:
 
 ```python
-from agency_swarm import Agency
+from nexus import Agency
 from .demo_gradio import demo_gradio
 
 agency = Agency([ceo])
@@ -131,24 +131,24 @@ demo_gradio(agency)
 
 </Steps>
 
-**For complete examples, see the [implementation notebook](https://github.com/VRSEN/agency-swarm/blob/main/notebooks/os_models_with_astra_assistants_api.ipynb) and [official Astra Assistants examples](https://github.com/datastax/astra-assistants-api/tree/main/examples/python/agency-swarm).**
+**For complete examples, see the [implementation notebook](https://github.com/VRSEN/nexus/blob/main/notebooks/os_models_with_astra_assistants_api.ipynb) and [official Astra Assistants examples](https://github.com/datastax/astra-assistants-api/tree/main/examples/python/nexus).**
 
 ## General Instructions
 
-To use agency-swarm with any other projects that mimic the Assistants API, generally, you need to follow these steps:
+To use nexus with any other projects that mimic the Assistants API, generally, you need to follow these steps:
 
 <Steps>
 
-<Step title="Install the previous version of agency-swarm as most projects are not yet compatible with streaming and Assistants V2:">
+<Step title="Install the previous version of nexus as most projects are not yet compatible with streaming and Assistants V2:">
 ```bash
-pip install agency-swarm==0.1.7
+pip install nexus==0.1.7
 ```
 </Step>
 
 <Step title="Switch out the OpenAI client:">
 ```python
 import openai
-from agency_swarm import set_openai_client
+from nexus import set_openai_client
 
 client = openai.OpenAI(api_key="your-api-key", base_url="http://127.0.0.1:8000/")
 
@@ -158,7 +158,7 @@ set_openai_client(client)
 
 <Step title="Set the model parameter:">
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 ceo = Agent(
     name="ceo",
@@ -170,10 +170,10 @@ ceo = Agent(
 </Step>
 
 <Step title="Start Gradio:">
-To utilize your agency in Gradio, apply a specific non-streaming `demo_gradio` method from the [agency-swarm-lab](https://github.com/VRSEN/agency-swarm-lab/blob/main/OpenSourceSwarm/demo_gradio.py) repository:
+To utilize your agency in Gradio, apply a specific non-streaming `demo_gradio` method from the [nexus-lab](https://github.com/VRSEN/nexus-lab/blob/main/OpenSourceSwarm/demo_gradio.py) repository:
 
 ```python
-from agency_swarm import Agency
+from nexus import Agency
 from .demo_gradio import demo_gradio
 
 agency = Agency([ceo])
@@ -205,4 +205,4 @@ Be aware of the limitations when using open-source models.
 
 Updates will be provided as new open-source assistant API implementations stabilize.
 
-If you successfully integrate other projects with agency-swarm, please share your experience through an issue or pull request.
+If you successfully integrate other projects with nexus, please share your experience through an issue or pull request.

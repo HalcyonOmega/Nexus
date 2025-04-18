@@ -1,10 +1,10 @@
 ---
 title: "Built-in Tools"
-description: "Learn how to use built-in tools in Agency Swarm."
+description: "Learn how to use built-in tools in Nexus."
 icon: "wrench"
 ---
 
-Each agent in Agency Swarm also with some built-in tools inherited from [OpenAI Assistants API](https://platform.openai.com/docs/api-reference/assistants/createAssistant#assistants-createassistant-tools).
+Each agent in Nexus also with some built-in tools inherited from [OpenAI Assistants API](https://platform.openai.com/docs/api-reference/assistants/createAssistant#assistants-createassistant-tools).
 
 
 ## Code Interpreter
@@ -12,7 +12,7 @@ Each agent in Agency Swarm also with some built-in tools inherited from [OpenAI 
 Code Interpreter allows agents to execute code within a remote Jupyter Notebook environment.
 
 ```python
-from agency_swarm.tools import CodeInterpreter
+from nexus.tools import CodeInterpreter
 
 agent = Agent(
     name="DataAnalyst",
@@ -31,7 +31,7 @@ agent = Agent(
 File Search allows agents to search through their knowledge base to improve their responses. This tool uses a production-ready vector database provided by OpenAI.
 
 ```python
-  from agency_swarm.tools import FileSearch
+  from nexus.tools import FileSearch
 
   agent = Agent(
       name="Researcher",

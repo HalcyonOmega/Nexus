@@ -1,10 +1,10 @@
 ---
 title: "Step-by-Step Guide"
-description: "Learn how to create custom tools in Agency Swarm framework."
+description: "Learn how to create custom tools in Nexus framework."
 icon: "map"
 ---
 
-In Agency Swarm, tools are Python classes that inherit from `BaseTool`. They are defined using [Pydantic](https://docs.pydantic.dev/latest/), a data validation library. Each BaseTool must implement the `run` method, which is the main method that will be called when the tool is invoked by an agent.
+In Nexus, tools are Python classes that inherit from `BaseTool`. They are defined using [Pydantic](https://docs.pydantic.dev/latest/), a data validation library. Each BaseTool must implement the `run` method, which is the main method that will be called when the tool is invoked by an agent.
 
 ## Step-by-step Guide
 
@@ -15,7 +15,7 @@ To create a custom tool, typically you need to follow these steps:
     On top of your tool file, import the necessary modules and classes.
 
     ```python
-    from agency_swarm.tools import BaseTool
+    from nexus.tools import BaseTool
     from pydantic import Field, model_validator
     # ... other imports
     ```
@@ -77,7 +77,7 @@ To create a custom tool, typically you need to follow these steps:
     After your tool works as expected, simply add it to an agent's list of `tools`.
 
     ```python
-    from agency_swarm import Agent
+    from nexus import Agent
     from .tools.calculator import Calculator
 
     agent = Agent(
@@ -91,7 +91,7 @@ To create a custom tool, typically you need to follow these steps:
       Alternatively, you can simply place the tool file in the `tools_folder` directory and it will be automatically added to the agent.
 
       ```python
-      from agency_swarm import Agent
+      from nexus import Agent
       agent = Agent(
           name="MathAgent",
           tools_folder="./tools",
@@ -112,7 +112,7 @@ Below is the full code example for a calculator tool above.
 
 ```python
 # calculator.py
-from agency_swarm.tools import BaseTool
+from nexus.tools import BaseTool
 from pydantic import Field, model_validator
 
 class Calculator(BaseTool):

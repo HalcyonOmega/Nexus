@@ -1,16 +1,47 @@
-# Byte-compiled / optimized / DLL files
+# Environment files
+.env
+
+# Python cache
 __pycache__/
 *.py[cod]
 *$py.class
 
-# C extensions
+# Python virtual environment
+.venv/
+virtualenv/
+venv/
+ENV/
+env/
+
+# Database files (if SQLite was used locally)
+*.db
+*.sqlite3
+
+# Docker secrets (if used)
+.dockerignore
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.idea/
+.vscode/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/
+
+# Log files
+*.log
+
+# Byte-compiled / optimized / DLL files
 *.so
 
 # Distribution / packaging
 .Python
-build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -56,7 +87,6 @@ cover/
 *.pot
 
 # Django stuff:
-*.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
@@ -119,15 +149,6 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-# Environments
-.env
-.venv/
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
 # Spyder project settings
 .spyderproject
 .spyproject
@@ -160,6 +181,3 @@ settings.json
 .DS_Store
 tests/test_agents/
 test_agents/
-
-# SQLite
-*.db

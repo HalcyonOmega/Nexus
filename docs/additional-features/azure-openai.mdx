@@ -1,6 +1,6 @@
 ---
 title: "Azure OpenAI"
-description: "Integrate Azure OpenAI with Agency Swarm to ensure secure data processing and enhanced privacy."
+description: "Integrate Azure OpenAI with Nexus to ensure secure data processing and enhanced privacy."
 icon: "microsoft"
 ---
 
@@ -19,7 +19,7 @@ Before you begin, ensure you have the following:
 3. Create an Azure OpenAI resource in [one of the available regions](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#assistants-preview) and deploy a model to it.
 4. Obtain the endpoint URL and API key for the OpenAI resource.
 
-## Setting Up Azure OpenAI with Agency Swarm
+## Setting Up Azure OpenAI with Nexus
 
 
 <Steps>
@@ -29,7 +29,7 @@ To use Azure OpenAI, you need to replace the default OpenAI client with the conf
 
 ```python
 from openai import AzureOpenAI
-from agency_swarm import set_openai_client
+from nexus import set_openai_client
 import os
 
 client = AzureOpenAI(
@@ -51,7 +51,7 @@ set_openai_client(client)
 Replace the `model` parameter inside each agent with your model deployment name from Azure.t:
 
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 ceo = Agent(
     name="ceo",
@@ -70,7 +70,7 @@ Model deployment name might be different from the stadard OpenAI model names. It
 After configuring the client and updating the agents, you can run your agency as usual:
 
 ```python
-from agency_swarm import Agency
+from nexus import Agency
 
 agency = Agency([ceo])
 agency.run_demo()
@@ -80,4 +80,4 @@ agency.run_demo()
 
 ## Example Notebook
 
-For an example of using Azure OpenAI with Agency Swarm, refer to the [Azure OpenAI Notebook](https://github.com/VRSEN/agency-swarm/blob/main/notebooks/azure.ipynb) in the notebooks folder.
+For an example of using Azure OpenAI with Nexus, refer to the [Azure OpenAI Notebook](https://github.com/VRSEN/nexus/blob/main/notebooks/azure.ipynb) in the notebooks folder.

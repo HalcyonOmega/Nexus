@@ -1,6 +1,6 @@
 ---
 title: "Tool Factory"
-description: "Creating tools from different sources in Agency Swarm."
+description: "Creating tools from different sources in Nexus."
 icon: "industry"
 ---
 
@@ -10,7 +10,7 @@ The `ToolFactory` class allows you to create tools from different sources, such 
 
 ```python
 from langchain.tools import YouTubeSearchTool
-from agency_swarm.tools import ToolFactory
+from nexus.tools import ToolFactory
 
 LangchainTool = ToolFactory.from_langchain_tool(YouTubeSearchTool)
 ```
@@ -21,7 +21,7 @@ LangchainTool = ToolFactory.from_langchain_tool(YouTubeSearchTool)
 
 ```python
 import requests
-from agency_swarm.tools import ToolFactory
+from nexus.tools import ToolFactory
 
 # Using a local OpenAPI schema file
 with open("schemas/your_schema.json") as f:

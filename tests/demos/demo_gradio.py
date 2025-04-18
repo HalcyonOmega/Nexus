@@ -1,11 +1,11 @@
 import sys
 
-sys.path.insert(0, "./agency-swarm")
+sys.path.insert(0, "./nexus")
 
-from agency_swarm import Agent
-from agency_swarm.agency.agency import Agency
-from agency_swarm.tools.BaseTool import BaseTool
-from agency_swarm.tools.oai import CodeInterpreter, FileSearch
+from nexus import Agent
+from nexus.agency.agency import Agency
+from nexus.tools.BaseTool import BaseTool
+from nexus.tools.oai import CodeInterpreter, FileSearch
 
 
 class PrintTool(BaseTool):

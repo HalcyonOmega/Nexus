@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
-  "name": "Agency Swarm",
+  "name": "Nexus",
   "colors": {
     "primary": "#fcd53b",
     "light": "#fcd53b",
@@ -141,7 +141,7 @@
         },
         {
           "anchor": "Changelog",
-          "href": "https://github.com/VRSEN/agency-swarm/releases",
+          "href": "https://github.com/VRSEN/nexus/releases",
           "icon": "timeline"
         }
       ]
@@ -150,7 +150,7 @@
   "logo": {
     "light": "/images/agencii-logo.svg",
     "dark": "/images/agencii-logo.svg",
-    "href": "https://github.com/VRSEN/agency-swarm"
+    "href": "https://github.com/VRSEN/nexus"
   },
   "appearance": {
     "default": "dark",
@@ -164,11 +164,11 @@
   "navbar": {
     "primary": {
       "type": "github",
-      "href": "https://github.com/VRSEN/agency-swarm"
+      "href": "https://github.com/VRSEN/nexus"
     }
   },
   "search": {
-    "prompt": "Search Agency Swarm docs"
+    "prompt": "Search Nexus docs"
   },
   "seo": {
     "indexing": "navigable"
@@ -177,7 +177,7 @@
     "socials": {
       "website": "https://vrsen.ai",
       "x": "https://x.com/__vrsen__",
-      "github": "https://github.com/VRSEN/agency-swarm",
+      "github": "https://github.com/VRSEN/nexus",
       "youtube": "https://youtube.com/@vrsen"
     }
   }

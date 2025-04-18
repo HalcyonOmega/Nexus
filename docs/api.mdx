@@ -1,6 +1,6 @@
 ---
 title: "API Reference"
-description: "Gain a deeper understanding of the core classes and methods available in Agency Swarm."
+description: "Gain a deeper understanding of the core classes and methods available in Nexus."
 icon: "book"
 ---
 
@@ -9,7 +9,7 @@ icon: "book"
 The Agency class manages a collection of agents and facilitates their communication.
 
 ```python
-from agency_swarm import Agency
+from nexus import Agency
 
 class Agency:
     def __init__(self,
@@ -157,10 +157,10 @@ def demo_gradio(self, height: int = 450, dark_mode: bool = True, **kwargs):
 
 ## Agent Class
 
-The Agent class is the core component of Agency Swarm that represents an AI assistant. Each agent has specific capabilities, tools, and can process files and instructions.
+The Agent class is the core component of Nexus that represents an AI assistant. Each agent has specific capabilities, tools, and can process files and instructions.
 
 ```python
-from agency_swarm import Agent
+from nexus import Agent
 
 class Agent:
     def __init__(self,
@@ -239,7 +239,7 @@ def add_shared_instructions(self, instructions: str):
 The base class for creating custom tools that agents can use. Tools allow agents to perform specific actions or access external functionality.
 
 ```python
-from agency_swarm.tools import BaseTool
+from nexus.tools import BaseTool
 from pydantic import BaseModel
 
 class BaseTool(BaseModel, ABC):
@@ -303,7 +303,7 @@ def run(self, **kwargs):
 The ToolFactory class provides convenient methods to create tools from various sources like OpenAPI specifications, LangChain tools, or Python files. This makes it easy to integrate external APIs and existing tools into your agents.
 
 ```python
-from agency_swarm.tools import ToolFactory
+from nexus.tools import ToolFactory
 
 class ToolFactory:
     """
@@ -320,7 +320,7 @@ class ToolFactory:
 @staticmethod
 def from_langchain_tools(tools: List) -> List[Type[BaseTool]]:
     """
-    Convert LangChain tools into Agency Swarm tools.
+    Convert LangChain tools into Nexus tools.
 
     Parameters:
         tools: List of LangChain tool instances or classes

@@ -5,14 +5,14 @@ with open("requirements.txt") as f:
     requirements = f.read().splitlines()
 
 setup(
-    name="agency-swarm",
+    name="nexus",
     version="0.4.6",
     author="VRSEN",
     author_email="me@vrsen.ai",
     description="An opensource agent orchestration framework built on top of the latest OpenAI Assistants API.",
     long_description=open("README.md", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/VRSEN/agency-swarm",
+    url="https://github.com/VRSEN/nexus",
     packages=find_packages(exclude=["tests", "tests.*"]),
     install_requires=requirements,
     classifiers=[
@@ -21,7 +21,7 @@ setup(
         "License :: OSI Approved :: MIT License",
     ],
     entry_points={
-        "console_scripts": ["agency-swarm=agency_swarm.cli:main"],
+        "console_scripts": ["nexus=nexus.cli:main"],
     },
     python_requires=">=3.10",
 )
