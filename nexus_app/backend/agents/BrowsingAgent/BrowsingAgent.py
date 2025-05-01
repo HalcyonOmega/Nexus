@@ -3,8 +3,8 @@ import re
 
 from typing_extensions import override
 
-from nexus.agents import Agent
-from nexus.tools.oai import FileSearch
+from agents import Agent
+from tools.oai import FileSearch
 
 
 class BrowsingAgent(Agent):

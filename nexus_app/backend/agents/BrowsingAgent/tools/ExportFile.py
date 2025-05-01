@@ -1,6 +1,6 @@
 import base64
 
-from nexus.tools import BaseTool
+from tools import BaseTool
 
 from .util import get_web_driver
 
@@ -10,7 +10,7 @@ class ExportFile(BaseTool):
 
     def run(self):
         wd = get_web_driver()
-        from nexus import get_openai_client
+        from backend import get_openai_client
 
         client = get_openai_client()
 

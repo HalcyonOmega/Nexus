@@ -3,8 +3,8 @@ from typing import Optional
 
 from pydantic import Field, model_validator
 
-from nexus.agency.genesis.util import check_agency_path
-from nexus.tools import BaseTool, ToolFactory
+from agency.genesis.util import check_agency_path
+from tools import BaseTool, ToolFactory
 
 
 class TestTool(BaseTool):

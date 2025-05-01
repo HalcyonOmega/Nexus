@@ -1,7 +1,7 @@
 import os
 from typing import Optional
 
-from nexus.tools import BaseTool
+from tools import BaseTool
 from mem0 import Memory, MemoryClient
 from mem0.configs.base import MemoryConfig
 from pydantic import Field

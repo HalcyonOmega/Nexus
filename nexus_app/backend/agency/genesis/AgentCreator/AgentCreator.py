@@ -1,4 +1,4 @@
-from nexus import Agent
+from backend import Agent
 
 from .tools.CreateAgentTemplate import CreateAgentTemplate
 from .tools.ImportAgent import ImportAgent

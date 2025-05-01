@@ -9,8 +9,8 @@ from openai.types.beta.threads.runs.tool_call import (
 )
 from typing_extensions import override
 
-from nexus.messages.message_output import MessageOutputLive
-from nexus.util.streaming.agency_event_handler import AgencyEventHandler
+from messages.message_output import MessageOutputLive
+from util.streaming.agency_event_handler import AgencyEventHandler
 
 
 def create_term_handler(agency=None) -> Type[AgencyEventHandler]:

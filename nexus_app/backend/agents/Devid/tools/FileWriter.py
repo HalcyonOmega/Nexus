@@ -4,9 +4,9 @@ from typing import List, Literal, Optional
 
 from pydantic import Field, field_validator
 
-from nexus import get_openai_client
-from nexus.tools import BaseTool
-from nexus.util.validators import llm_validator
+from backend import get_openai_client
+from tools import BaseTool
+from util.validators import llm_validator
 
 from .util import format_file_deps
 

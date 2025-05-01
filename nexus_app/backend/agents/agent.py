@@ -9,18 +9,18 @@ from openai import NotFoundError
 from openai.lib._parsing._completions import type_to_response_format_param
 from openai.types.beta.assistant import ToolResources
 
-from nexus.constants import DEFAULT_MODEL
-from nexus.tools import (
+from constants import DEFAULT_MODEL
+from tools import (
     BaseTool,
     CodeInterpreter,
     FileSearch,
     Retrieval,
     ToolFactory,
 )
-from nexus.tools.oai.FileSearch import FileSearchConfig
-from nexus.util.oai import get_openai_client
-from nexus.util.openapi import validate_openapi_spec
-from nexus.util.shared_state import SharedState
+from tools.oai.FileSearch import FileSearchConfig
+from util.oai import get_openai_client
+from util.openapi import validate_openapi_spec
+from util.shared_state import SharedState
 
 
 class ExampleMessage(TypedDict):

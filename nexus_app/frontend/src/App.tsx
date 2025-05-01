@@ -1,48 +1,34 @@
-import React, { useState, useCallback } from 'react';
-import ReactFlow, {
-  applyNodeChanges,
-  applyEdgeChanges,
-  Background,
-  Controls,
-  Node,
-  Edge
-} from 'reactflow';
-import 'reactflow/dist/style.css';
-
-const initialNodes: Node[] = [
-  { id: '1', data: { label: 'Node 1' }, position: { x: 100, y: 100 } },
-  { id: '2', data: { label: 'Node 2' }, position: { x: 300, y: 100 } }
-];
-
-const initialEdges: Edge[] = [
-  { id: 'e1-2', source: '1', target: '2' }
-];
+import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { AgencyProvider } from './contexts/AgencyContext';
+import { AgentProvider } from './contexts/AgentContext';
+import { ToolProvider } from './contexts/ToolContext';
+import AppRoutes from './routes'; // Your routes component
+import './App.css'; // Keep existing App CSS or update as needed
 
 function App() {
-  const [nodes, setNodes] = useState<Node[]>(initialNodes);
-  const [edges, setEdges] = useState<Edge[]>(initialEdges);
-
-  const onNodesChange = useCallback(
-    (changes: any) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    []
-  );
-  const onEdgesChange = useCallback(
-    (changes: any) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-    []
-  );
-
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-      >
-        <Background />
-        <Controls />
-      </ReactFlow>
-    </div>
+    <BrowserRouter>
+      <AgencyProvider>
+        <AgentProvider>
+          <ToolProvider>
+            {/* Basic Layout Example (Optional) */}
+            <div className="app-container">
+              <header className="app-header">
+                <h1>Nexus Agency Management</h1>
+                {/* Add Navigation Links if needed */}
+              </header>
+              <main className="app-main">
+                <AppRoutes />
+              </main>
+              <footer className="app-footer">
+                {/* Footer content */}
+              </footer>
+            </div>
+          </ToolProvider>
+        </AgentProvider>
+      </AgencyProvider>
+    </BrowserRouter>
   );
 }
 

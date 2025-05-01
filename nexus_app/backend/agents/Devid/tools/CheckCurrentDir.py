@@ -1,6 +1,6 @@
 from pydantic import Field
 
-from nexus import BaseTool
+from tools import BaseTool
 
 
 class CheckCurrentDir(BaseTool):

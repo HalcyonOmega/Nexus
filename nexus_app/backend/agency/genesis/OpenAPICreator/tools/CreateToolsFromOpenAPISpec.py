@@ -3,10 +3,10 @@ import os
 
 from pydantic import Field, field_validator, model_validator
 
-from nexus import BaseTool
-from nexus.agency.genesis.util import check_agency_path, check_agent_path
-from nexus.tools import ToolFactory
-from nexus.util.openapi import validate_openapi_spec
+from backend import BaseTool
+from agency.genesis.util import check_agency_path, check_agent_path
+from tools import ToolFactory
+from util.openapi import validate_openapi_spec
 
 
 class CreateToolsFromOpenAPISpec(BaseTool):

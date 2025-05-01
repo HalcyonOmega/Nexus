@@ -6,9 +6,9 @@ from openai.types.beta.threads.message import Message
 from openai.types.beta.threads.run import RequiredActionFunctionToolCall, Run
 from openai.types.beta.threads.runs.tool_call import ToolCall
 
-from nexus.messages.message_output import MessageOutput
-from nexus.util.tracking import get_callback_handler
-from nexus.util.tracking.langchain_types import AgentAction
+from messages.message_output import MessageOutput
+from util.tracking import get_callback_handler
+from util.tracking.langchain_types import AgentAction
 
 
 class TrackingManager:

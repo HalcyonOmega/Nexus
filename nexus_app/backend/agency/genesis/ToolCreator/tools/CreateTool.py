@@ -4,9 +4,9 @@ from typing import Literal
 
 from pydantic import Field, field_validator, model_validator
 
-from nexus import get_openai_client
-from nexus.agency.genesis.util import check_agency_path
-from nexus.tools import BaseTool
+from backend import get_openai_client
+from agency.genesis.util import check_agency_path
+from tools import BaseTool
 
 prompt = """# Nexus Overview
 

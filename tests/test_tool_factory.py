@@ -7,8 +7,8 @@ import pytest
 from langchain_community.tools import MoveFileTool, YouTubeSearchTool
 from pydantic import BaseModel, ConfigDict, Field
 
-from nexus.tools import BaseTool, ToolFactory
-from nexus.util import get_openai_client
+from src.tools import BaseTool, ToolFactory
+from src.util import get_openai_client
 
 
 @pytest.fixture

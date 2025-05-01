@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from nexus import Agent
+from backend import Agent
 
 from .tools.CreateAgencyFolder import CreateAgencyFolder
 from .tools.FinalizeAgency import FinalizeAgency

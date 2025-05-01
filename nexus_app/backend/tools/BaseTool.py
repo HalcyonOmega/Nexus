@@ -5,7 +5,7 @@ from docstring_parser import parse
 from openai.types.beta.threads.runs.tool_call import ToolCall
 from pydantic import BaseModel
 
-from nexus.util.shared_state import SharedState
+from util.shared_state import SharedState
 
 
 class classproperty:

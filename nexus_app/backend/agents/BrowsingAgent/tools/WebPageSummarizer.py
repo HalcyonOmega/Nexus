@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-from nexus.tools import BaseTool
+from tools import BaseTool
 
 from .util import get_web_driver, set_web_driver
 
@@ -11,7 +11,7 @@ class WebPageSummarizer(BaseTool):
     """
 
     def run(self):
-        from nexus import get_openai_client
+        from backend import get_openai_client
 
         wd = get_web_driver()
         client = get_openai_client()

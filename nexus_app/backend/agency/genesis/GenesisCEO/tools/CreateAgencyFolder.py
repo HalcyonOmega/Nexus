@@ -4,8 +4,8 @@ from pathlib import Path
 
 from pydantic import Field, field_validator
 
-import nexus.agency.genesis.GenesisAgency
-from nexus import BaseTool
+import agency.genesis.GenesisAgency
+from backend import BaseTool
 
 
 class CreateAgencyFolder(BaseTool):

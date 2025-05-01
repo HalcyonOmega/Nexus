@@ -86,7 +86,7 @@ def main():
         agency = GenesisAgency(with_browsing=args.with_browsing)
         agency.run_demo()
     elif args.command == "import-agent":
-        from util.import_agent import import_agent
+        from util.cliimport_agent import import_agent
 
         import_agent(args.name, args.destination)
 

@@ -3,10 +3,10 @@ from typing import ClassVar, Union
 
 from pydantic import Field, field_validator
 
-from nexus.agents.agent import Agent
-from nexus.threads.thread import Thread
-from nexus.threads.thread_async import ThreadAsync
-from nexus.tools import BaseTool
+from agents.agent import Agent
+from threads.thread import Thread
+from threads.thread_async import ThreadAsync
+from tools import BaseTool
 
 
 class SendMessageBase(BaseTool, ABC):

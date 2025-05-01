@@ -1,6 +1,6 @@
 from pydantic import Field
 
-from nexus.tools import BaseTool
+from src.tools import BaseTool
 
 
 class ExampleTool1(BaseTool):

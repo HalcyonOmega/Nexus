@@ -3,8 +3,8 @@ from typing import List
 
 from pydantic import Field, field_validator, model_validator
 
-from nexus import BaseTool, get_openai_client
-from nexus.util import create_agent_template
+from backend import BaseTool, get_openai_client
+from util import create_agent_template
 
 
 class FinalizeAgency(BaseTool):

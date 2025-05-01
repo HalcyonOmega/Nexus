@@ -2,7 +2,7 @@ from typing import List, Literal
 
 from pydantic import BaseModel, Field
 
-from nexus import get_openai_client
+from backend import get_openai_client
 
 
 def format_file_deps(v):

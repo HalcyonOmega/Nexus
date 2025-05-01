@@ -1,8 +1,8 @@
 import json
 import sys
 
-from nexus.agency.agency import Agency
-from nexus.threads import Thread
+from src.agency.agency import Agency
+from src.threads import Thread
 from tests.ceo.ceo import Ceo
 
 from .test_agent.test_agent import TestAgent

@@ -63,7 +63,7 @@ def greet(name):
 
 # Define the Gradio interface
 with gr.Blocks() as demo:
-    gr.Markdown("## Nexus - Agency Swarm UI")
+    gr.Markdown("## Nexus - Agency UI")
     with gr.Tab("Greeting"): # Example Tab
         inp = gr.Textbox(placeholder="What is your name?")
         out = gr.Textbox()

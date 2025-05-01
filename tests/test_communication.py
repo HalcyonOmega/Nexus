@@ -3,9 +3,9 @@ import time
 import pytest
 from pydantic import Field
 
-from nexus import Agency, Agent
-from nexus.tools import BaseTool
-from nexus.tools.send_message import SendMessageSwarm
+from src import Agency, Agent
+from src.tools import BaseTool
+from src.tools.send_message import SendMessageSwarm
 
 
 @pytest.fixture

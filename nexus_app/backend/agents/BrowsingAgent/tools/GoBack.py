@@ -1,6 +1,6 @@
 import time
 
-from nexus.tools import BaseTool
+from tools import BaseTool
 
 from .util.selenium import get_web_driver, set_web_driver
 

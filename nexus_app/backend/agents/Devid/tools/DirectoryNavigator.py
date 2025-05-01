@@ -2,7 +2,7 @@ import os
 
 from pydantic import Field, field_validator, model_validator
 
-from nexus.tools import BaseTool
+from tools import BaseTool
 
 
 class DirectoryNavigator(BaseTool):

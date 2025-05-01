@@ -1,4 +1,4 @@
-from nexus import Agent
+from backend import Agent
 
 from .tools.CreateToolsFromOpenAPISpec import CreateToolsFromOpenAPISpec
 

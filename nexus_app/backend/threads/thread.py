@@ -16,13 +16,13 @@ from openai.types.beta.threads.required_action_function_tool_call import (
 )
 from openai.types.beta.threads.runs.tool_call import ToolCall
 
-from nexus.agents import Agent
-from nexus.messages import MessageOutput
-from nexus.tools import CodeInterpreter, FileSearch
-from nexus.user import User
-from nexus.util.oai import get_openai_client
-from nexus.util.streaming.agency_event_handler import AgencyEventHandler
-from nexus.util.tracking.tracking_manager import TrackingManager
+from agents import Agent
+from messages import MessageOutput
+from tools import CodeInterpreter, FileSearch
+from user import User
+from util.oai import get_openai_client
+from util.streaming.agency_event_handler import AgencyEventHandler
+from util.tracking.tracking_manager import TrackingManager
 
 logger = logging.getLogger(__name__)
 

@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/react-router-dom": "^5.3.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.5.1",
     "reactflow": "^11.11.4"
   },
   "devDependencies": {
@@ -26,5 +28,15 @@
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.26.1",
     "vite": "^6.3.1"
+  },
+  "overrides": {
+    "grunt": ">=1.6.1",
+    "grunt-legacy-util": ">=2.0.1",
+    "js-yaml": ">=3.13.1",
+    "lodash": ">=4.17.21",
+    "minimatch": ">=3.0.5",
+    "underscore": ">=1.12.1",
+    "underscore.string": ">=3.3.5",
+    "getobject": ">=1.0.0"
   }
 }

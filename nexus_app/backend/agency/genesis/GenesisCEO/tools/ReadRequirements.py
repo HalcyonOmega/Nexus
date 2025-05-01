@@ -2,7 +2,7 @@ import os
 
 from pydantic import Field
 
-from nexus.tools import BaseTool
+from tools import BaseTool
 
 
 class ReadRequirements(BaseTool):

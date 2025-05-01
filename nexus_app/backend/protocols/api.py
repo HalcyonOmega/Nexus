@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from nexus.protocols.a2a import router as a2a_router
-from nexus.protocols.mcp import router as mcp_router
+from protocols.a2a import router as a2a_router
+from protocols.mcp import router as mcp_router
 
 app = FastAPI(
     title="Nexus Nexus API",

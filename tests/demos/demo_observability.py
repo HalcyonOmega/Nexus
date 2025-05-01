@@ -2,8 +2,8 @@ import logging
 
 from dotenv import load_dotenv
 
-from nexus import Agency, Agent
-from nexus.util import init_tracking, stop_tracking
+from src import Agency, Agent
+from src.util import init_tracking, stop_tracking
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)

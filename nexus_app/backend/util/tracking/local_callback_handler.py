@@ -8,7 +8,7 @@ from uuid import UUID
 import tiktoken
 from langchain.schema import AgentAction, AgentFinish, BaseMessage, Document, LLMResult
 
-from nexus.constants import DEFAULT_MODEL
+from constants import DEFAULT_MODEL
 
 logger = logging.getLogger(__name__)
 

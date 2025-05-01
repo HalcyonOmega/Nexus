@@ -4,7 +4,7 @@ from typing import List, Literal, Optional
 
 from pydantic import BaseModel, Field, field_validator, model_validator
 
-from nexus import BaseTool
+from tools import BaseTool
 
 
 class LineChange(BaseModel):

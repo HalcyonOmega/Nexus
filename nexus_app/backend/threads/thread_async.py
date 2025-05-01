@@ -3,9 +3,9 @@ from typing import List, Optional, Union
 
 from openai.types.beta import AssistantToolChoice
 
-from nexus.agents import Agent
-from nexus.threads import Thread
-from nexus.user import User
+from agents import Agent
+from threads import Thread
+from user import User
 
 
 class ThreadAsync(Thread):

@@ -4,7 +4,7 @@ from pydantic import Field, model_validator
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 
-from nexus.tools import BaseTool
+from tools import BaseTool
 
 from .util import get_web_driver, set_web_driver
 from .util.highlights import remove_highlight_and_labels

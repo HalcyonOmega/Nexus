@@ -11,8 +11,8 @@ from openai.types.beta.threads.runs.tool_call import (
 )
 from typing_extensions import override
 
-from nexus.messages import MessageOutput
-from nexus.util.streaming import AgencyEventHandler
+from messages import MessageOutput
+from util.streaming import AgencyEventHandler
 
 
 def create_gradio_handler(chatbot_queue: queue.Queue) -> Type[AgencyEventHandler]:

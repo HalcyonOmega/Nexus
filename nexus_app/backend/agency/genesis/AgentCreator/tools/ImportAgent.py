@@ -2,9 +2,9 @@ import os
 
 from pydantic import Field, field_validator
 
-from nexus import BaseTool
-from nexus.util.cli import import_agent
-from nexus.util.helpers import (
+from backend import BaseTool
+from util.cli import import_agent
+from util.helpers import (
     get_available_agent_descriptions,
     list_available_agents,
 )

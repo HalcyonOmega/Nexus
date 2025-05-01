@@ -2,10 +2,10 @@ import sys
 
 sys.path.insert(0, "./nexus")
 
-from nexus import Agent
-from nexus.agency.agency import Agency
-from nexus.tools.BaseTool import BaseTool
-from nexus.tools.oai import CodeInterpreter, FileSearch
+from src import Agent
+from src.agency.agency import Agency
+from src.tools.BaseTool import BaseTool
+from src.tools.oai import CodeInterpreter, FileSearch
 
 
 class PrintTool(BaseTool):

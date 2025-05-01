@@ -3,8 +3,8 @@ from typing import Callable
 from openai import OpenAI
 from pydantic import BaseModel, Field
 
-from nexus.constants import DEFAULT_MODEL_MINI
-from nexus.util.oai import get_openai_client
+from constants import DEFAULT_MODEL_MINI
+from util.oai import get_openai_client
 
 
 class Validator(BaseModel):

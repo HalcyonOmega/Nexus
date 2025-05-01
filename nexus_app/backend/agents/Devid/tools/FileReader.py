@@ -1,6 +1,6 @@
 from pydantic import Field, field_validator
 
-from nexus.tools import BaseTool
+from tools import BaseTool
 
 
 class FileReader(BaseTool):

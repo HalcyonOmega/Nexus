@@ -15,15 +15,15 @@ from openai.types.beta.threads.runs import ToolCall
 from pydantic import BaseModel
 from typing_extensions import override
 
-from nexus import (
+from src import (
     Agency,
     AgencyEventHandler,
     Agent,
     get_openai_client,
 )
-from nexus.tools import BaseTool, FileSearch, ToolFactory
-from nexus.tools.send_message import SendMessageAsyncThreading
-from nexus.util import create_agent_template
+from src.tools import BaseTool, FileSearch, ToolFactory
+from src.tools.send_message import SendMessageAsyncThreading
+from src.util import create_agent_template
 
 os.environ["DEBUG_MODE"] = "True"
 

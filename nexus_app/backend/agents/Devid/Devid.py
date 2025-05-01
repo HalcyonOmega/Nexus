@@ -2,9 +2,9 @@ import re
 
 from typing_extensions import override
 
-from nexus.agents import Agent
-from nexus.tools import FileSearch
-from nexus.util.validators import llm_validator
+from agents import Agent
+from tools import FileSearch
+from util.validators import llm_validator
 
 
 class Devid(Agent):

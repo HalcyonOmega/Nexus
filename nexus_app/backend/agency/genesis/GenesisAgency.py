@@ -1,5 +1,5 @@
-from nexus import Agency
-from nexus.util.helpers import get_available_agent_descriptions
+from backend import Agency
+from util.helpers import get_available_agent_descriptions
 
 from .AgentCreator import AgentCreator
 from .GenesisCEO import GenesisCEO
@@ -26,7 +26,7 @@ class GenesisAgency(Agency):
             ]
 
             if with_browsing:
-                from nexus.agents.BrowsingAgent import BrowsingAgent
+                from agents.BrowsingAgent import BrowsingAgent
 
                 browsing_agent = BrowsingAgent()
 
